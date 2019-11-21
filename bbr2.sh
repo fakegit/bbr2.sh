@@ -150,6 +150,7 @@ disable_bbr2() {
     sed -i "/net.ipv4.tcp_ecn/d" /etc/sysctl.conf
     echo 0 > /sys/module/tcp_bbr2/parameters/ecn_enable
     sysctl -p
+    sed -i "/\/sys\/module\/tcp_bbr2\/parameters\/ecn_enable/d" /etc/rc.local
 }
 enable_ecn() {
     sed -i "/net.ipv4.tcp_ecn/d" /etc/sysctl.conf
@@ -291,7 +292,7 @@ do
 echo "+----------------------------------+" &&
 echo "|               夜桜               |" &&
 echo "|   BBR2 一鍵安裝 for Debian x64   |" &&
-echo "|         2019-10-30 Alpha         |" &&
+echo "|        2019-11-21 Alpha-2        |" &&
 echo "+----------------------------------+"
 
 check_environment
